@@ -64,7 +64,7 @@ const DateTime = ({current,timezone,lat,lon}) => {
 const styles = StyleSheet.create({
 
     container: {
-        flex: 1.5,
+        flex: 0.5,
         flexDirection:"row",
         justifyContent:"space-between",
         padding: 20
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     },
     rightAlign: {
         textAlign: 'right',
-        marginTop: 20
+        marginTop: 85
     },
     timezone: {
         fontSize: 20,
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#18181b99",
         borderRadius: 10,
         padding: 15,
-        marginTop: 30
+        marginTop: 50
     },
     weatherItem: {
         flexDirection: 'row',

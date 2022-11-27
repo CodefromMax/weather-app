@@ -22,10 +22,14 @@
     },
     "android": {
       "adaptiveIcon": {
+
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF",
+        "backgroundColor": "#FFFFFF"
+      },
+        "package": "in.max.weatherapp",
+        "versionCode": 1,
         "permissions":["LOCATION"]
-      }
+     
     },
     "web": {
       "favicon": "./assets/favicon.png"

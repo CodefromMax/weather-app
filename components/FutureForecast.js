@@ -14,9 +14,7 @@ const FutureForecast = ({data}) => {
 
                      <FutureForecastItem key={idx} forecastItem={data}/>
                 ))
-
                 :
-
                 <View/>
             }
           
@@ -30,7 +28,7 @@ const FutureForecast = ({data}) => {
 
 
 const FutureForecastItem = ({forecastItem}) => {
-    if(forecastItem){
+    
         const img = {uri: 'http://openweathermap.org/img/wn/' + forecastItem.weather[0].icon +'@2x.png'}
         
         return (
@@ -44,19 +42,10 @@ const FutureForecastItem = ({forecastItem}) => {
                     <Text style = {styles.temp}>Wind_Speed:  {forecastItem.wind_speed} m/s</Text>
                     <Text style = {styles.temp}>Precipitation:  {forecastItem.rain?forecastItem.rain :0} mm</Text>
                     <Text style = {styles.temp}>Humidity:  {forecastItem.humidity}%</Text>
-
-                </View>
-                
+                </View>  
             </View>
         )
-    }
-    else{
-        return(
-            <View>
-
-            </View>
-        )
-    }
+    
 }
 
 
@@ -96,8 +85,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color:"Black",
         fontWeight:"500",
-        
-        justifyContent: 'space-between',
+        //justifyContent: 'space-between',
         flexDirection: 'row'
     },
 

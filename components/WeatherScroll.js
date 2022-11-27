@@ -11,17 +11,13 @@ const WeatherScroll = ({weatherData}) => {
   )
 }
 
-
-    
-
-
 const styles = StyleSheet.create({
    
     scrollView: {
         flex:0.4,
         backgroundColor: '#fefbd8',
         padding:30
-    },
+    }
 
 })
 
