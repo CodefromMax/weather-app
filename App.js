@@ -68,14 +68,14 @@ export default function App() {
     <View style={styles.container}>
       <ImageBackground source = {img} style = {styles.simage}>
         <DateTime current={data.current} timezone={data.timezone} lat={data.lat} lon={data.lon} /> 
-        <TextInput placeholder = "Enter city name" 
+        <TextInput placeholder = "Enter city name (London)" 
         onChangeText={text => setInput(text)} 
         value = {input}
         placeholderTextColor = {'#000'}
         style = {styles.textInput}
         onSubmitEditing = {fetchDataHandler} />
         
-        <TextInput placeholder = "ZIP Code,Country" 
+        <TextInput placeholder = "ZIP Code,Country Code (L4B,CA)" 
         onChangeText={text => setInput1(text)} 
         value = {input1}
         placeholderTextColor = {'#000'}
