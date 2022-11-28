@@ -18,13 +18,9 @@ const FutureForecast = ({data}) => {
                 <View/>
             }
           
-            
-
         </View>
     )
 }
-
-
 
 
 const FutureForecastItem = ({forecastItem}) => {
@@ -47,8 +43,6 @@ const FutureForecastItem = ({forecastItem}) => {
         )
     
 }
-
-
 
 export default FutureForecast
 
@@ -85,7 +79,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color:"Black",
         fontWeight:"500",
-        //justifyContent: 'space-between',
         flexDirection: 'row'
     },
 

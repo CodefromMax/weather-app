@@ -10,10 +10,11 @@ const API_KEY ='49cc8c821cd2aff9af04c9f98c36eb74';
 
 export default function App() {
 
-  const[input,setInput] = useState(""); // Type
-  const[input1,setInput1] = useState("");
-  const [data,setData] = useState({})
+  const[input,setInput] = useState(""); // Store City
+  const[input1,setInput1] = useState(""); // Store ZIP
+  const [data,setData] = useState({}); // Store Weather
 
+  //Search by City
   const fetchDataHandler = useCallback(() => {
     setInput("");
 
@@ -23,19 +24,22 @@ export default function App() {
       fetchDataFromApi(location1[0].lat, location1[0].lon);
     }
   })
-  },[])
+  },[input,API_KEY])
 
+  //Search by Zip
   const fetchZipHandler = useCallback(() => {
     setInput1("");
+    
     fetch(`http://api.openweathermap.org/geo/1.0/zip?zip=${input1}&appid=${API_KEY}`)
-    .then(res => res.json()).then(location1 => { 
-      if(location1[0]!= undefined){
-      fetchDataFromApi(location1.lat, location1.lon);
+    .then(res => res.json()).then(location2 => { 
+      if(location2!= undefined){
+      fetchDataFromApi(location2.lat, location2.lon);
       
     }
   })
-  },[])
+  },[input1,API_KEY])
   
+  //Initial location
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -49,12 +53,12 @@ export default function App() {
     })();
   }, [])
 
+  //Weather
   const fetchDataFromApi = (latitude, longitude) => {
     if(latitude && longitude) {
       fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=hourly,minutely&units=metric&appid=${API_KEY}
     `)
     .then(res => res.json()).then(data => {
-    console.log(data)
     setData(data)
     })
   }
@@ -70,6 +74,7 @@ export default function App() {
         placeholderTextColor = {'#000'}
         style = {styles.textInput}
         onSubmitEditing = {fetchDataHandler} />
+        
         <TextInput placeholder = "ZIP Code,Country" 
         onChangeText={text => setInput1(text)} 
         value = {input1}
@@ -78,8 +83,6 @@ export default function App() {
         onSubmitEditing = {fetchZipHandler} />
         <WeatherScroll weatherData = {data.daily}/>
       </ImageBackground>
-      
-      
     </View>
   );
 }
